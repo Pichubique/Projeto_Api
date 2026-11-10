@@ -36,7 +36,7 @@ function App() {
           "https://dragonball-api.com/api/characters/10"
         ),
         axios.get(
-          "https://pokeapi.co/api/v2/pokemon/raichu"
+          "https://pokeapi.co/api/v2/pokemon/lugia"
         ),
         axios.get(
           `https://www.omdbapi.com/?i=tt0803096&apikey=${API_KEY}`
@@ -187,17 +187,19 @@ function App() {
 
         <div id="social">
           <h2>Meu pet</h2>
-
+          
           <p>{pokemon.name || 'Pokémon não disponível'}</p>
 
-          {pokemon.sprites?.front_default && (
+          {pokemon.sprites.front_default && (
             <img
               src={pokemon.sprites.front_default}
               alt={pokemon.name || 'Pokémon'}
             />
           )}
 
-          <p>{pokemon.types?.[0]?.type?.name || ''}</p>
+
+
+          <p>{pokemon.types[0].type.name || ''}</p>
         </div>
       </section>
 
