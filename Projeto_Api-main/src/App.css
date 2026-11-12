@@ -227,5 +227,45 @@
   }
 }
 
+/* TEMA CLARO */
+.site-container.claro {
+    --fundo: #ffffff;
+    --texto: #222222;
+    --card: #f1f1f1;
+    --borda: #cccccc;
+}
 
+/* TEMA ESCURO */
+.site-container.escuro {
+    --fundo: #171717;
+    --texto: #ffffff;
+    --card: #292929;
+    --borda: #555555;
+}
 
+/* APLICAÇÃO GERAL */
+.site-container {
+    min-height: 100vh;
+    background-color: var(--fundo);
+    color: var(--texto);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* CARDS */
+.site-container .pokemonCard,
+.site-container .pokemon-card,
+.site-container .evolutionCard,
+.site-container .card {
+    background-color: var(--card);
+    color: var(--texto);
+    border-color: var(--borda);
+}
+
+/* TEXTOS */
+.site-container h1,
+.site-container h2,
+.site-container h3,
+.site-container p,
+.site-container span {
+    color: inherit;
+}

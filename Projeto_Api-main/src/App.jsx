@@ -15,6 +15,7 @@ function App() {
   const [DBZ, setDBZ] = useState({})
   const [pokemon, setPokemon] = useState({})
   const [filme, setFilme] = useState({})
+  const [tema, setTema] = useState('claro')
   const [text, setText] = useState(() => {
     return localStorage.getItem('easy-input') || '';
   });
@@ -123,6 +124,17 @@ function App() {
 
   return (
     <>
+    <div className={`site-container ${tema}`}>
+
+    <button onClick={() => setTema(
+        tema === "claro" ? "escuro" : "claro"
+    )}>
+        {tema === "claro" ? "🌙 Tema escuro" : "☀️ Tema claro"}
+    </button>
+
+    {/* Todo o restante do seu site fica aqui */}
+
+
       <section id="center">
         <div className="hero">
           {DBZ.image && (
@@ -161,7 +173,7 @@ function App() {
         {/*Atividade etapa 1 renderizar pesquisa de filmes até aqui */}
 
         {/*Atividade etapa 2 renderizar mousetracker aqui */}
-
+          
       </section>
 
       <div className="ticks"></div>
@@ -194,6 +206,7 @@ function App() {
       </section>
 
       <div className="ticks"></div>
+      </div>
     </>
   );
 }

@@ -1,5 +1,6 @@
    
 import { useState, useEffect } from 'react'
+import PokemonCard from './PokemonCard'
 
 function EvolutionNode({ evolution }) {
     const [pokemon, setPokemon] = useState(null)
@@ -103,11 +104,21 @@ export default function PokemonPet() {
 
             setEvolucao(dadosEvolucao.chain)
 
-            const pokemonFormatado = {
-                nome: dados.name,
-                tipo: dados.types.map(t => t.type.name).join(", "),
-                sprite: dados.sprites.front_default
-            }
+           const pokemonFormatado = {
+            
+            nome: dados.name,
+            imagem: dados.sprites.front_default,
+
+            tipos: dados.types.map(t => t.type.name),
+
+            vida: dados.stats.find(
+            stat => stat.stat.name === "hp"
+        ).base_stat,
+
+            ataque: dados.stats.find(
+            stat => stat.stat.name === "attack"
+        ).base_stat
+    }
 
             setPokemon(pokemonFormatado)
 
@@ -140,13 +151,16 @@ export default function PokemonPet() {
                 <p className="errorText">{erro}</p>
             )}
 
-            {!carregando && pokemon && (
-                <div className="pokemonCard">
-                    <img src={pokemon.sprite} alt={pokemon.nome} />
-                    <h3>{pokemon.nome.toUpperCase()}</h3>
-                    <p>Tipo: {pokemon.tipo}</p>
-                </div>
+           {!carregando && pokemon && (
+            <PokemonCard
+                nome={pokemon.nome}
+                imagem={pokemon.imagem}
+                vida={pokemon.vida}
+                ataque={pokemon.ataque}
+                tipos={pokemon.tipos}
+                    />
             )}
+            
 
             {pokemon && evolucao && (
                 <div className="evolutionCard">
