@@ -209,8 +209,16 @@
   }
 
   #docs {
-    border-right: 0.0625rem solid var(--border);
-    border-bottom: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  
+  }
+
+
+  #docs img{
+      align-items: center;
+    justify-content: center;
   }
 
   #next-steps ul {
@@ -268,4 +276,165 @@
 .site-container p,
 .site-container span {
     color: inherit;
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+
+/* Organização geral da página */
+.site-container {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Cada segmento */
+.segmento {
+    width: 100%;
+    min-height: 33.33vh;
+    box-sizing: border-box;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 5px solid black;
+}
+
+/* Títulos */
+.segmento h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Dragon Ball */
+.dragonball {
+    background: linear-gradient(135deg, #ffcc70, #ff8c42);
+    color: #552800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+  flex: wrap;
+  text-align: center;
+}
+
+
+/* Filmes */
+.filmes {
+    background: linear-gradient(135deg, #20232a, #454b57);
+    color: white;
+}
+
+
+
+/* Pokémon */
+.pokemon {
+    background: linear-gradient(135deg, #b7e4a8, #75c9d1);
+    color: #173b25;
+}
+
+/* Área da árvore evolutiva */
+.evolutionTree {
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.evolutionNode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.evolutionChildren {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Ligação entre os Cards */
+.evolutionBranch {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Seta */
+.evolutionArrow {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e69b25;
+    flex-shrink: 0;
+}
+
+/* Card exclusivo de evolução */
+.pokemonEvolutionCard {
+    width: 190px;
+    min-height: 310px;
+    flex-shrink: 0;
+}
+
+.pokemonPrincipal{
+  align-self: center;
+  margin: 0 auto;
+}
+
+
+.pokemonEvolutionCard .genericCardImage {
+    width: 130px;
+    height: 130px;
+}
+
+.evolutionLoading {
+    width: 190px;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.5);
+    border-radius: 12px;
+}
+
+/* Remover limitações de largura da página */
+* {
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    max-width: none;
+    text-align: initial;
+}
+
+.site-container {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fazer cada segmento ocupar toda a largura */
+.segmento {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
 }

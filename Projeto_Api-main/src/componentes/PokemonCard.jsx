@@ -37,7 +37,8 @@ export default function pokemonCard({
             <h2>{nome.toUpperCase()}</h2>
         <div className="pokemonTypes">
             {tipos.map((tipo) =>(
-                <span key={tipo}>{tipo}</span>
+                <span key={tipo} className={`tipo ${tipo}`}>
+                </span>
             ))}
         </div>
         <div className="pokemonStatus">

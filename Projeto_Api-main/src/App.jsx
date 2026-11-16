@@ -4,6 +4,7 @@ import './App.css'
 import axios from 'axios'
 import MovieList from './componentes/MovieList'
 import PokemonPet from './componentes/MyPet'
+import Card from './componentes/Card'
 //import MouseTracker from './components/mouseTracker';
 
 function App() {
@@ -122,38 +123,37 @@ function App() {
     );
   }
 
+  
   return (
-    <>
     <div className={`site-container ${tema}`}>
 
-    <button onClick={() => setTema(
+      <button onClick={() => setTema(
         tema === "claro" ? "escuro" : "claro"
-    )}>
+      )}>
         {tema === "claro" ? "🌙 Tema escuro" : "☀️ Tema claro"}
-    </button>
+      </button>
 
-    {/* Todo o restante do seu site fica aqui */}
+      {/* SEGMENTO DRAGON BALL */}
+      <section className="segmento dragonball">
 
+        <h2>DRAGON BALL</h2>
 
-      <section id="center">
-        <div className="hero">
-          {DBZ.image && (
-            <img
-              src={DBZ.image}
-              className="base"
-              width="170"
-              height="179"
-              alt="Personagem de Dragon Ball"
-            />
-          )}
-        </div>
+        {DBZ.image && (
+          <Card
+            title={DBZ.name}
+            mediaUrl={DBZ.image}
+            tags={[DBZ.race, DBZ.gender].filter(Boolean)}
+            metadata={[
+              { label: 'Ki', value: DBZ.ki },
+              { label: 'Afiliação', value: DBZ.affiliation }
+            ]}
+          />
+        )}
 
-        <div>
-          <h1>{perfil.nome || 'Perfil não disponível'}</h1>
-        </div>
+        <h2>{perfil.nome || 'Perfil não disponível'}</h2>
 
         <div className="card">
-          <h2>UseEffect Nível Fácil: Sincronizar com LocalStorage</h2>
+          <h3>Sincronizar com LocalStorage</h3>
           <p>
             O que você digitar será salvo automaticamente.
             Se recarregar a página, não perderá a informação.
@@ -167,20 +167,18 @@ function App() {
           />
         </div>
 
-        {/*Atividade etapa 1 renderizar pesquisa de filmes aqui */}
-           <MovieList />
-
-        {/*Atividade etapa 1 renderizar pesquisa de filmes até aqui */}
-
-        {/*Atividade etapa 2 renderizar mousetracker aqui */}
-          
       </section>
 
-      <div className="ticks"></div>
 
-      <section id="next-steps">
+      {/* SEGMENTO FILMES */}
+      <section className="segmento filmes">
+
+        <h2>FILMES</h2>
+
+        <MovieList />
+
         <div id="docs">
-          <h2>Filme que não gostei</h2>
+          <h3>Filme que não gostei</h3>
 
           <p>{filme.Title || 'Filme não disponível'}</p>
 
@@ -194,21 +192,22 @@ function App() {
 
           <p>{filme.Ratings?.[1]?.Source || ''}</p>
           <p>{filme.Ratings?.[1]?.Value || ''}</p>
-          <p></p>
-          <p></p>
         </div>
-        
-        <div id="randomEncouter">
-          <h2>Random Encounter</h2>
 
-          <PokemonPet/>
-         </div>
       </section>
 
-      <div className="ticks"></div>
-      </div>
-    </>
-  );
+
+      {/* SEGMENTO POKÉMON */}
+      <section className="segmento pokemon">
+
+        <h2>POKÉMON</h2>
+
+        <PokemonPet />
+
+      </section>
+
+    </div>
+  )
 }
 
-export default App;
+export default App

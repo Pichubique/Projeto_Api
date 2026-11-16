@@ -1,12 +1,13 @@
    
 import { useState, useEffect } from 'react'
-import PokemonCard from './PokemonCard'
+import Card from './Card'
+
 
 function EvolutionNode({ evolution }) {
     const [pokemon, setPokemon] = useState(null)
 
     useEffect(() => {
-        async function buscarImagem() {
+        async function buscarPokemon() {
             try {
                 const resposta = await fetch(
                     `https://pokeapi.co/api/v2/pokemon/${evolution.species.name}`
@@ -18,41 +19,68 @@ function EvolutionNode({ evolution }) {
 
                 const dados = await resposta.json()
 
-                setPokemon(dados)
+                setPokemon({
+                    nome: dados.name,
+                    imagem: dados.sprites.other?.['official-artwork']?.front_default
+                        || dados.sprites.front_default,
+                    tipos: dados.types.map(t => t.type.name),
+                    vida: dados.stats.find(
+                        stat => stat.stat.name === "hp"
+                    ).base_stat,
+                    ataque: dados.stats.find(
+                        stat => stat.stat.name === "attack"
+                    ).base_stat
+                })
 
             } catch (err) {
                 console.error(err)
             }
         }
 
-        buscarImagem()
-
+        buscarPokemon()
     }, [evolution.species.name])
 
     return (
-        <li>
-            {pokemon && (
-                <img
-                    src={pokemon.sprites.front_default}
-                    alt={evolution.species.name}
-                />
-            )}
+        <div className="evolutionNode">
 
-            <p>{evolution.species.name.toUpperCase()}</p>
+            {pokemon ? (
+                <Card
+                    className="pokemonEvolutionCard"
+                    title={pokemon.nome}
+                    mediaUrl={pokemon.imagem}
+                    tags={pokemon.tipos}
+                    metadata={[
+                        { label: 'Vida', value: pokemon.vida },
+                        { label: 'Ataque', value: pokemon.ataque }
+                    ]}
+                />
+            ) : (
+                <div className="evolutionLoading">
+                    Carregando...
+                </div>
+            )}
 
             {evolution.evolves_to.length > 0 && (
-                <ul>
+                <div className="evolutionChildren">
                     {evolution.evolves_to.map((proximaEvolucao) => (
-                        <EvolutionNode
+                        <div
+                            className="evolutionBranch"
                             key={proximaEvolucao.species.name}
-                            evolution={proximaEvolucao}
-                        />
+                        >
+                            <span className="evolutionArrow">➜</span>
+
+                            <EvolutionNode
+                                evolution={proximaEvolucao}
+                            />
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
-        </li>
+
+        </div>
     )
 }
+
 
 export default function PokemonPet() {
     const [pokemon, setPokemon] = useState(null)
@@ -152,24 +180,28 @@ export default function PokemonPet() {
             )}
 
            {!carregando && pokemon && (
-            <PokemonCard
-                nome={pokemon.nome}
-                imagem={pokemon.imagem}
-                vida={pokemon.vida}
-                ataque={pokemon.ataque}
-                tipos={pokemon.tipos}
+            <Card
+                title={pokemon.nome}
+                className='pokemonPrincipal'
+                mediaUrl={pokemon.imagem}
+                tags={pokemon.tipos}
+                metadata={[
+                    {label:'Vida', value: pokemon.vida},
+                    {label:'Ataque', value: pokemon.ataque}
+                ]}
+
                     />
             )}
             
 
             {pokemon && evolucao && (
                 <div className="evolutionCard">
-                    <h3>Árvore Evolutiva</h3>
+                <h3>Árvore Evolutiva</h3>
 
-                    <ul>
-                        <EvolutionNode evolution={evolucao} />
-                    </ul>
-                </div>
+                <div className="evolutionTree">
+                <EvolutionNode evolution={evolucao} />
+            </div>
+            </div>
             )}
         </div>
     )

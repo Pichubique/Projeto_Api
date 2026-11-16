@@ -32,9 +32,11 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     margin: 12px 0;
 }
 
-.pokemonTypes span{
-    padding: 5px 12px;
-    background: rgba(255, 255, 255, 0.75);
+.pokemonTypes span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: bold;
@@ -50,3 +52,32 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     margin-top: 8px 0;
     font-weight: 600;
 }
+
+.tipo {
+    padding: 5px 12px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Cores dos tipos */
+
+.normal { background-color: #A8A878; }
+.fire { background-color: #F08030; }
+.water { background-color: #6890F0; }
+.grass { background-color: #78C850; }
+.electric { background-color: #F8D030; color: #222; }
+.ice { background-color: #98D8D8; color: #222; }
+.fighting { background-color: #C03028; }
+.poison { background-color: #A040A0; }
+.ground { background-color: #E0C068; color: #222; }
+.flying { background-color: #A890F0; }
+.psychic { background-color: #F85888; }
+.bug { background-color: #A8B820; }
+.rock { background-color: #B8A038; }
+.ghost { background-color: #705898; }
+.dragon { background-color: #7038F8; }
+.dark { background-color: #705848; }
+.steel { background-color: #B8B8D0; color: #222; }
+.fairy { background-color: #EE99AC; }

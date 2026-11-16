@@ -1,4 +1,4 @@
-
+import Card from './Card'
 import { useState, useEffect } from 'react'
 
 export default function MovieList() {
@@ -54,13 +54,20 @@ export default function MovieList() {
             {loading ? (
                 <p>Carregando filmes...</p>
             ) : movies.length > 0 ? (
-                <ul className="movie-list">
+                <div className="movie-list">
                     {movies.map((movie) => (
-                        <li key={movie.imdbID}>
-                            <strong>{movie.Title}</strong> ({movie.Year})
-                        </li>
+                       <Card 
+                       key={movie.imdbID}
+                       className='movieCard'
+                       title={movie.Title}
+                       mediaUrl={movie.Poster !== 'N/A' ? movie.Poster : null}
+                       tags={[movie.Type]}
+                       metadata={[
+                        {label: 'Ano', value: movie.Year}
+                       ]}
+                       />
                     ))}
-                </ul>
+                </div>
             ) : (
                 <p>Nenhum filme encontrado.</p>
             )}

@@ -1,0 +1,217 @@
+    .generiCard{
+    width: 100%;
+    padding: 20x;
+    border: 2px solid #888;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .generiCard:hover{
+        transform: translateY(-6px);
+        box-shadow: 0 10px 20x rgba(0, 0, 0, 0.2);
+    }
+
+    .generiCard img{
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        display:block;
+        margin: 0 auto;
+    }
+
+    .generiCard h2{
+    margin: 10px 0;
+    text-transform: capitalize;
+    }
+
+    .generiCardTags{
+        display: flex;
+        justify-content: center;
+        flex: wrap;
+        gap: 8px;
+        margin: 12px 0;
+    }
+
+    .genericTag{
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    .genericCardMetadata p{
+        margin: 8px 0;
+        
+    }
+
+    /* Card genérico */
+    .genericCard {
+        width: 220px;
+        min-height: 280px;
+        padding: 15px;
+        border-radius: 12px;
+        background-color: white;
+        color: #222;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .genericCardImage {
+        display: block;
+        width: 150px;
+        height: 150px;
+        max-width: 100%;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    /* Nome */
+    .genericCard h2 {
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    /* Tipos e categorias */
+    .genericCardTags {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .genericTag {
+        padding: 4px 8px;
+        border-radius: 15px;
+        background-color: #ffe0a3;
+        color: #663300;
+        font-size: 12px;
+    }
+
+    /* Informações */
+    .genericCardMetadata {
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .genericCardMetadata p {
+        margin: 5px 0;
+    }
+
+    /* filme */
+
+    /* Personalização exclusiva dos filmes */
+.movieCard {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 12px;
+}
+
+/* Área dos pôsteres */
+.movieCard .genericCardImage {
+    width: 140px;
+    height: 200px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Título dos filmes */
+.movieCard h2 {
+    width: 100%;
+    min-height: 42px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movieCard .genericCardMetadata {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    text-align: center;
+}
+
+.movieCard .genericCardMetadata p {
+    margin: 5px 0;
+    overflow-wrap: break-word;
+}
+
+
+/* Cenário por tipo de Pokémon */
+.genericCard.grass {
+    background: linear-gradient(135deg, #a8e6a3, #397d3b);
+}
+
+.genericCard.fire {
+    background: linear-gradient(135deg, #ffbd75, #d94b27);
+}
+
+.genericCard.water {
+    background: linear-gradient(135deg, #a5d8ff, #2875bd);
+}
+
+.genericCard.electric {
+    background: linear-gradient(135deg, #fff3a3, #e6bd24);
+}
+
+.genericCard.ghost {
+    background: linear-gradient(135deg, #b9a5d5, #51406f);
+}
+
+.genericCard.psychic {
+    background: linear-gradient(135deg, #ffc0d9, #c34b83);
+}
+
+.genericCard.ice {
+    background: linear-gradient(135deg, #d5f5fa, #64baca);
+}
+
+.genericCard.dragon {
+    background: linear-gradient(135deg, #b7a1ed, #5540a0);
+}
+
+.genericCard.dark {
+    background: linear-gradient(135deg, #77717d, #29252f);
+}
+
+.genericCard.fairy {
+    background: linear-gradient(135deg, #ffd6ed, #d77eae);
+}
+
+.genericCard.normal {
+    background: linear-gradient(135deg, #e5e1d2, #aaa38c);
+}
+
+.genericCard.fighting {
+    background: linear-gradient(135deg, #e9a17e, #a3422e);
+}
+
+.genericCard.poison {
+    background: linear-gradient(135deg, #d6a1df, #82418d);
+}
+
+.genericCard.ground {
+    background: linear-gradient(135deg, #e8ce9a, #a47b3f);
+}
+
+.genericCard.rock {
+    background: linear-gradient(135deg, #d7c58d, #887344);
+}
+
+.genericCard.bug {
+    background: linear-gradient(135deg, #c8df8c, #718d32);
+}
+
+.genericCard.flying {
+    background: linear-gradient(135deg, #d5dcfa, #8799cf);
+}
+
+.genericCard.steel {
+    background: linear-gradient(135deg, #d5dce5, #7d8c9f);
+}
